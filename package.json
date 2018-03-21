@@ -1,10 +1,9 @@
 {
-  "name": "learning01",
+  "name": "mmall-fe",
   "version": "1.0.0",
   "description": "mmall前端代码",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "WEBPACK_ENV=dev webpack-dev-server --inline --port 8088",
     "dev_win": "set WEBPACK_ENV=dev && webpack-dev-server --inline --port 8088",
     "dist": "WEBPACK_ENV=online webpack -p",
@@ -12,31 +11,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KelvinGong/Learning01.git"
+    "url": "git@git.oschina.net:happymmall/mmall-fe.git"
   },
-  "author": "Kelvin",
+  "author": "Rosen",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KelvinGong/Learning01/issues"
-  },
-  "homepage": "https://github.com/KelvinGong/Learning01#readme",
   "devDependencies": {
-    "css-loader": "^0.28.7",
+    "css-loader": "^0.28.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.11.1",
-    "html-loader": "^0.5.1",
-    "html-webpack-plugin": "^2.30.1",
-    "style-loader": "^0.19.0",
+    "hogan": "^1.0.2",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "datatables.net": "^1.10.16",
+    "datatables.net-dt": "^1.10.16",
     "font-awesome": "^4.7.0",
-    "grunt-cli": "^1.2.0",
-    "hogan": "^1.0.2",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.12.9"
+    "jquery": "^3.3.1"
   }
 }

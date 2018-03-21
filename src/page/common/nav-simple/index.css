@@ -5,13 +5,13 @@
 * @Last Modified time: 2017-05-23 20:04:16
 */
 .nav-simple{
-    height: 60px;
-    line-height: 60px;
+    height: 30px;
+    line-height: 30px;
     border-bottom: 1px solid #ddd;
     background: #fff;
 }
 .nav-simple .logo{
-    font-size: 26px;
+    font-size: 13px;
     font-weight: bold;
     color: #c60023;
     text-decoration: none;

@@ -1,12 +1,12 @@
 /*
 * @Author: Rosen
 * @Date:   2017-05-15 15:26:38
-* @Last Modified by:   Rosen
-* @Last Modified time: 2017-05-21 14:58:37
+* @Last Modified by:   gongkelvin
+* @Last Modified time: 2018-03-09 10:49:17
 */
 
 'use strict';
-var Hogan = require('hogan');
+var Hogan = require('hogan.js');
 var conf = {
     serverHost : ''
 };

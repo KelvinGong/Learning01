@@ -1,8 +1,8 @@
 /*
 * @Author: Rosen
 * @Date:   2017-05-08 15:28:19
-* @Last Modified by:   Rosen
-* @Last Modified time: 2017-06-13 19:17:31
+* @Last Modified by:   gongkelvin
+* @Last Modified time: 2018-03-09 10:49:56
 */
 var webpack             = require('webpack');
 var ExtractTextPlugin   = require('extract-text-webpack-plugin');
@@ -29,6 +29,7 @@ var config = {
         'common'            : ['./src/page/common/index.js'],
         'index'             : ['./src/page/index/index.js'],
         'list'              : ['./src/page/list/index.js'],
+        'memberlist'        : ['./src/page/memberlist/index.js'],
         'detail'            : ['./src/page/detail/index.js'],
         'cart'              : ['./src/page/cart/index.js'],
         'order-confirm'     : ['./src/page/order-confirm/index.js'],
@@ -86,6 +87,7 @@ var config = {
         // html模板的处理
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('memberlist', '会员列表')),
         new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情')),
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认')),
