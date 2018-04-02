@@ -1,0 +1,66 @@
+    <div class="member-item">
+        <span class="label">会员号：</span>
+        <span class="content">{{memberCode}}</span>
+        <input class="input" id="memberCode" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">中文名：</span>
+        <span class="content">{{memName}}</span>
+        <input class="input" id="memName" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">英文名：</span>
+        <span class="content">{{nameEng}}</span>
+        <input class="input" id="nameEng" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">生日：</span>
+        <span class="content">{{birthday}}</span>
+        <input id="birthday" class="startDate" type="date"/> 
+    </div>
+    <div class="member-item">
+        <span class="label">性别：</span>
+        <span class="content">{{gender}}</span>
+        <select id="gender">
+            <option value="未知">未知</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+    </div>
+    <div class="member-item">
+        <span class="label">父母名：</span>
+        <span class="content">{{nameParents}}</span>
+        <input class="input" id="nameParents" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">手机：</span>
+        <span class="content">{{phone}}</span>
+        <input class="input" id="phone" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">微信：</span>
+        <span class="content">{{wechat}}</span>
+        <input class="input" id="wechact" autocomplete="off">
+    </div>
+    <div class="member-item">
+        <span class="label">地址：</span>
+        <span class="content">{{address}}</span>
+        <input class="input" id="address" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">渠道：</span>
+        <span class="content">{{marketing}}</span>
+        <select class="marketingList" id="marketing">
+            
+        </select>
+    </div>
+    <div class="member-item">
+        <span class="label">转介绍：</span>
+        <span class="content">{{referFrom}}</span>
+        <input class="input" id="referFrom" autocomplete="off"/>
+    </div>
+    <div class="member-item">
+        <span class="label">备注：</span>
+        <span class="content">{{remarks}}</span>
+        <input class="input" id="remarks" autocomplete="off"/>
+    </div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= require('html-loader!./layout/head-common.html')  %>
+
+    <title><%= htmlWebpackPlugin.options.title%> - Enrollment Sys.</title>
+</head>
+<body>
+    <%= require('html-loader!./layout/nav.html')  %>
+
+    <div class="crumb">
+        <div class="w">
+            <div class="crumb-con">
+                <a class="link" href="./index.html">Enrollment Sys.</a>
+                <span>></span>
+                <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
+            </div>
+        </div>
+    </div>
+    <div class="w">
+        <div class="memDetail"></div>
+        <span class="btn btn-submit">修改</span>
+        <span class="btn btn-cancel">返回</span>
+    </div>
+
+
+    
+
+    <%= require('html-loader!./layout/footer.html')  %>
+</body>
+</html>
+
+

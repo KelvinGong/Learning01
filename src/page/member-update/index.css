@@ -1,0 +1,54 @@
+/*
+* @Author: it.dept
+* @Date:   2018-03-23 14:15:29
+* @Last Modified by:   gongkelvin
+* @Last Modified time: 2018-04-02 11:11:05
+*/
+
+.panel-title{font-size: 16px; font-weight: bolder;margin-bottom: 20px;}
+.member-item{
+ margin-bottom: 10px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+}
+
+
+.member-item .label{
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+}
+
+
+.member-item .input{
+ border: 1px solid #d3d3d3;
+ padding: 10px 10px;
+ width: 290px;
+ border-radius: 4px;
+ padding-left:10px;
+ -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+ box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+ -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;/*Chrome/Safari*/
+ -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;/*Opera*/
+ -moz-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;/*Firefox*/
+ -ms-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; /*IE*/
+ transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+.member-item .input:focus{
+ border-color: #66afe9;
+ outline: 0;
+ -webkit-box-shadow: 1px 1px 5px #CCC;/*Chrome/Safari*/
+ box-shadow:1px 1px 5px #CCC;
+ -o-box-shadow:1px 1px 5px #CCC;/*Opera*/
+ -moz-box-shadow:1px 1px 5px #CCC;/*Firefox*/
+ -ms-box-shadow:1px 1px 5px #CCC; /*IE*/
+}
+
+.member-item .content{
+    display:inline-block;
+ padding: 10px 10px;
+ width: 290px;
+ border-radius: 4px;
+ padding-left:10px;
+}

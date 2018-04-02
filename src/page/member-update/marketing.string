@@ -1,0 +1,4 @@
+            <option value="{{marketingCode}}">{{marketing}}</option>
+            {{#marketingList}}
+                <option value="{{id}}">{{marketingName}}</option>
+            {{/marketingList}}

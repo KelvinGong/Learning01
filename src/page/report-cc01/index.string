@@ -1,0 +1,83 @@
+<table id="table-id" class="hovertable">
+        
+            <tr>
+                <th>序号</th>
+                <th>CC中文名</th>
+                <th>签约学员</th>
+                <th>计算提成金额</th>
+                <th>提成比例A</th>
+                <th>提成比例F</th>
+                <th>提成比例总和</th>
+                <th>提成小计</th>
+                <th>备注</th>
+                <th>签字确认</th>
+            </tr>
+{{#list}}
+    {{#newList}}
+    <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+        <td></td>
+        <td>{{ccName}}</td>
+        <td>{{memberName}}</td>
+        <td>{{turnover}}</td>
+        <td>{{rateA}}</td>
+        <td>{{rateF}}</td>
+        <td>{{totalPerformancePercent}}</td>
+        <td>{{performance}}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {{/newList}}
+    <tr>
+        <th colspan="3">新单小计</th>
+        <th>{{newSubtotalTurnover}}</th>
+        <th colspan="3"></th>
+        <th>{{newSubtotalPerformance}}</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {{#renewalList}}
+    <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+        <td></td>
+        <td>{{ccName}}</td>
+        <td>{{memberName}}</td>
+        <td>{{turnover}}</td>
+        <td>{{rateA}}</td>
+        <td>{{rateF}}</td>
+        <td>{{totalPerformancePercent}}</td>
+        <td>{{performance}}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    {{/renewalList}}
+
+    <tr>
+        <th colspan="3">续约小计</th>
+        <th>{{renewalSubtotalTurnover}}</th>
+        <th colspan="3"></th>
+        <th>{{renewalSubtotalPerformance}}</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th colspan="3">CC小计</th>
+        <th>{{totalCCTurnover}}</th>
+        <th colspan="3"></th>
+        <th>{{totalCCPerformance}}</th>
+        <th></th>
+        <th></th>
+    </tr>
+{{/list}}
+
+    <tr>
+        <th colspan="3">中心总计</th>
+        <th>{{totalCtrTurnover}}</th>
+        <th colspan="3"></th>
+        <th>{{totalCtrPerformance}}</th>
+        <th></th>
+        <th></th>  
+    </tr>
+
+</table>
+{{^list}}
+    <p class="err-tip">很抱歉，实在找不到您要的数据。</p>
+{{/list}}

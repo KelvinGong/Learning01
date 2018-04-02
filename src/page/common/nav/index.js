@@ -1,8 +1,8 @@
 /*
 * @Author: Rosen
 * @Date:   2017-05-17 14:17:01
-* @Last Modified by:   Rosen
-* @Last Modified time: 2017-05-22 12:21:05
+* @Last Modified by:   gongkelvin
+* @Last Modified time: 2018-03-29 17:38:44
 */
 
 'use strict';
@@ -27,6 +27,8 @@ var nav = {
         $('.js-register').click(function(){
             window.location.href = './user-register.html';
         });*/
+        
+
         // 退出点击事件
         $('.js-logout').click(function(){
             _user.logout(function(res){
@@ -45,6 +47,7 @@ var nav = {
             // do nothing
         });
     }
+
     // 加载购物车数量
 /*    loadCartCount : function(){
         _cart.getCartCount(function(res){
@@ -53,6 +56,7 @@ var nav = {
             $('.nav .cart-count').text(0);
         });
     }*/
+
 };
 
 module.exports = nav.init();

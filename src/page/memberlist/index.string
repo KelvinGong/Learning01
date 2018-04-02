@@ -1,32 +1,36 @@
-<table id="table_id" class="display">
+<table id="table-id" class="hovertable">
         
             <tr>
-                <th>id</th>
+                <th></th>
                 <th>会员号</th>
                 <th>中文名</th>
                 <th>英文名</th>
                 <th>生日</th>
+                <th>年龄</th>
                 <th>性别</th>
                 <th>父母</th>
                 <th>电话</th>
                 <th>微信</th>
                 <th>地址</th>
+                <th>中心</th>
                 <th>推荐人</th>
                 <th>渠道</th>
                 <th>备注</th>
             </tr>
 {{#list}}
-    <tr>
-        <td>{{id}}</td>
+    <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+        <td><a class="memDetail" href="./member-detail.html?id={{id}}" value="{{id}}">详情</button></td>
         <td>{{memberCode}}</td>
         <td>{{memName}}</td>
         <td>{{nameEng}}</td>
         <td>{{birthday}}</td>
+        <td>{{age}}</td>
         <td>{{gender}}</td>
         <td>{{nameParents}}</td>
         <td>{{phone}}</td>
         <td>{{wechat}}</td>
         <td>{{address}}</td>
+        <td>{{centre}}</td>
         <td>{{referFrom}}</td>
         <td>{{marketing}}</td>
         <td>{{remarks}}</td>

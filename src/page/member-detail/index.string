@@ -1,0 +1,52 @@
+    <div class="member-item">
+        <span class="label">会员号：</span>
+        <span class="content">{{memberCode}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">中文名：</span>
+        <span class="content">{{memName}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">英文名：</span>
+        <span class="content">{{nameEng}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">生日：</span>
+        <span class="content">{{birthday}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">年龄：</span>
+        <span class="content">{{age}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">性别：</span>
+        <span class="content">{{gender}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">父母名：</span>
+        <span class="content">{{nameParents}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">手机：</span>
+        <span class="content">{{phone}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">微信：</span>
+        <span class="content">{{wechat}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">地址：</span>
+        <span class="content">{{address}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">渠道：</span>
+        <span class="content">{{marketing}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">转介绍：</span>
+        <span class="content">{{referFrom}}</span>
+    </div>
+    <div class="member-item">
+        <span class="label">备注：</span>
+        <span class="content">{{remarks}}</span>
+    </div>
