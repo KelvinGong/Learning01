@@ -1,0 +1,80 @@
+    <div class="sell-item">
+        <span class="label">支付日期：</span>
+        <span class="content">{{payDate}}</span>
+        <input id="payDate" type="date"/> 
+    </div>
+    <div class="sell-item">
+        <span class="label">会员名：</span>
+        <span class="content">{{memberName}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">会员号：</span>
+        <span class="content">{{memberCode}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">合同号：</span>
+        <span class="content">{{contractCode}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">POS小票号：</span>
+        <span class="content">{{receptPosCode}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">课程产品：</span>
+        <span class="content">{{courseCode}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">价格：</span>
+        <span class="content">{{price}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">班级号：</span>
+        <span class="content">{{_classCode}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">是否为续费：</span>
+        <span class="content">{{isRenewal}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">是否为短期课：</span>
+        <span class="content">{{isShort}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">首课时间：</span>
+        <span class="content">{{firstclassTime}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">CC1：</span>
+        <span class="content">{{cc1}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">CC2：</span>
+        <span class="content">{{cc2}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">DEMO课主教：</span>
+        <span class="content">{{ei}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">DEMO课助教：</span>
+        <span class="content">{{ta}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">DEMO课外教：</span>
+        <span class="content">{{ii}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">备注：</span>
+        <span class="content">{{remarks}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">暂缓日期：</span>
+        <span class="content">{{pauseDate}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">毕业日期：</span>
+        <span class="content">{{graduateDate}}</span>
+    </div>    <div class="sell-item">
+        <span class="label">退费日期：</span>
+        <span class="content">{{refundDate}}</span>
+    </div>

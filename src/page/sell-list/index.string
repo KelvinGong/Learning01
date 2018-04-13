@@ -1,0 +1,37 @@
+<table id="table-id" class="hovertable">
+        
+
+            <tr>
+                <th></th>
+                <th>购买日期</th>
+                <th>会员名</th>
+                <th>会员号</th>
+                <th>合同号</th>
+                <th>产品</th>
+                <th>金额</th>
+                <th>首课时间</th>
+                <th>CC1</th>
+                <th>CC2</th>
+                <th>备注</th>
+                <th>退款日期</th>
+            </tr>
+{{#list}}
+    <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+        <td><a class="memDetail" href="./sell-detail.html?id={{id}}" value="{{id}}">详情</button></td>
+        <td>{{payDate}}</td>
+        <td>{{memberName}}</td>
+        <td>{{memberCode}}</td>
+        <td>{{contractCode}}</td>
+        <td>{{courseCode}}</td>
+        <td>{{price}}</td>
+        <td>{{firstclassTime}}</td>
+        <td>{{cc1}}</td>
+        <td>{{cc2}}</td>
+        <td>{{remarks}}</td>
+        <td>{{refundDate}}</td>
+    </tr>
+{{/list}}
+</table>
+{{^list}}
+    <p class="err-tip">很抱歉，实在找不到您要的数据。</p>
+{{/list}}

@@ -1,8 +1,8 @@
 /*
 * @Author: Rosen
 * @Date:   2017-05-17 17:04:32
-* @Last Modified by:   Rosen
-* @Last Modified time: 2017-05-24 17:11:19
+* @Last Modified by:   gongkelvin
+* @Last Modified time: 2018-04-04 11:40:57
 */
 
 'use strict';
@@ -29,6 +29,16 @@ var _user = {
                 str     : username
             },
             method  : 'POST',
+            success : resolve,
+            error   : reject
+        });
+    },
+    // 列出符合要求的用户
+    listUser : function(userInfo, resolve, reject){
+        _mm.request({
+            url     : _mm.getServerUrl('/user/list_user.do'),
+            data    : userInfo,
+            method  : 'GET',
             success : resolve,
             error   : reject
         });

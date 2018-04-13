@@ -2,7 +2,7 @@
 * @Author: mmall
 * @Date:   2017-05-27 17:57:49
 * @Last Modified by:   gongkelvin
-* @Last Modified time: 2018-04-02 16:19:43
+* @Last Modified time: 2018-04-02 16:28:11
 */
 
 'use strict';
@@ -11,8 +11,8 @@ require('page/common/nav/index.js');
 require('page/common/header/index.js'); 
 var _mm             = require('util/mm.js');
 var _member         = require('service/member-service.js');
-
 var _centre         = require('service/centre-service.js');
+var _sell           = require('service/sell-service.js');
 var Pagination      = require('util/pagination/index.js');
 var templateIndex   = require('./index.string');
 var templateCentre  = require('page/common/centre.string');
@@ -24,24 +24,27 @@ var page = {
             keyword         : _mm.getUrlParam('keyword')    || '',
             field           : _mm.getUrlParam('field')      || '',
             orderByField    : _mm.getUrlParam('orderByFidle')||'',
-            orderBy         : _mm.getUrlParam('orderBy')    || 'default',
+            orderBy         : _mm.getUrlParam('orderBy')    || '',
             pageNum         : _mm.getUrlParam('pageNum')    || 1,
             pageSize        : _mm.getUrlParam('pageSize')   || 20,
             centreCode      : _mm.getUrlParam('centreCode') || '',
-            // startDate       : _mm.getUrlParam('startDate')      || startDate.value,
-            // endDate         : _mm.getUrlParam('endDate')        || endDate.value,
-            // dateField       : _mm.getUrlParam('dateField')      || 'pay_date'
+            startDate       : _mm.getUrlParam('startDate')      || startDate.value,
+            endDate         : _mm.getUrlParam('endDate')        || endDate.value,
+            dateField       : _mm.getUrlParam('dateField')      || 'pay_date'
         }
     },
     init : function(){
         this.onLoad();
         this.bindEvent();
+
     },
     onLoad : function(){
-        this.loadList();
         var now = new Date(); 
         startDate.value=now.getFullYear() + "-"+ this.pad((now.getMonth()+1),2)+"-01";
         endDate.value= now.getFullYear() + "-"+ this.pad((now.getMonth()+1),2)+"-"+this.pad(now.getDate(),2);
+
+
+        this.loadList();
     },
     pad : function(num,n){
         var len = num.toString().length;  
@@ -133,12 +136,18 @@ var page = {
             listParam   = this.data.listParam,
             $pListCon   = $('.m-list-con');
         $pListCon.html('<div class="loading"></div>');
-
-        // // 删除参数中不必要的字段
-        // listParam.categoryId 
-        //     ? (delete listParam.keyword) : (delete listParam.categoryId);
+        console.log($('#startDate').val().toString());
+        listParam.startDate=$('#startDate').val().toString();
+        listParam.endDate=$('#endDate').val().toString();
+        // 删除参数中不必要的字段
+        listParam.field
+              ? (delete listParam.keyword) : (delete listParam.keyword,
+                                                delete listParam.field);
+        listParam.orderByField
+              ? (delete listParam.keyword) : (delete listParam.orderByField,
+                                                delete listParam.orderBy);
         // 请求接口
-        _member.getMemberList(listParam, function(res){
+        _sell.getSellList(listParam, function(res){
             listHtml = _mm.renderHtml(templateIndex, {
                 list :  res.list
             });

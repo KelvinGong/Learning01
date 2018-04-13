@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= require('html-loader!./layout/head-common.html')  %>
+
+    <title><%= htmlWebpackPlugin.options.title%> - Enrollment Sys.</title>
+</head>
+<body>
+    <%= require('html-loader!./layout/nav.html')  %>
+
+    <div class="crumb">
+        <div class="w">
+            <div class="crumb-con">
+                <a class="link" href="./index.html">Enrollment Sys.</a>
+                <span>></span>
+                <span class="link-text"><%= htmlWebpackPlugin.options.title%></span>
+            </div>
+        </div>
+    </div>
+    <div class="w">
+    <div class="sell-item">
+        <span class="label">支付日期：</span>
+        <input id="payDate" type="date"/> 
+    </div>
+    <div class="sell-item">
+        <span class="label">会员：</span>
+        <select id="memberName">
+    </select>
+    </div>
+    <div class="sell-item">
+        <span class="label">合同号：</span>
+        <span class="content">{{contractCode}}</span>
+        <input class="input" id="contractCode" autocomplete="off"/>
+    </div>
+    <div class="sell-item">
+        <span class="label">POS小票号：</span>
+        <span class="content">{{receptPosCode}}</span>
+        <input class="input" id="receptPosCode" autocomplete="off"/>
+    </div>
+    <div class="sell-item">
+        <span class="label">课程产品：</span>
+        <select id="course"></select>
+    </div>
+    <div class="sell-item">
+        <span class="label">价格：</span>
+        <span class="content">{{price}}</span>
+        <input class="input" id="price" autocomplete="off"/>
+    </div>
+    <div class="sell-item">
+        <span class="label">班级号：</span>
+        <span class="content">{{_classCode}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">是否为续费：</span>
+        <span class="content">{{isRenewal}}</span>
+        <input type="checkbox" id="isRenewal" />
+    </div>
+    <div class="sell-item">
+        <span class="label">是否为短期课：</span>
+        <span class="content">{{isShort}}</span>
+        <input type="checkbox" id="isShort" />
+    </div>
+    <div class="sell-item">
+        <span class="label">首课时间：</span>
+        <span class="content">{{firstclassTime}}</span>
+    </div>
+    <div class="sell-item">
+        <span class="label">CC1：</span>
+        <span class="content">{{cc1}}</span>
+        <select id="cc1"></select>
+    </div>
+    <div class="sell-item">
+        <span class="label">CC2：</span>
+        <span class="content">{{cc2}}</span>
+        <select id="cc2"></select>
+    </div>
+        <div class="sell-item">
+        <span class="label">DEMO课主教：</span>
+        <span class="content">{{ei}}</span>
+        <select id="ei"></select>
+    </div>
+        <div class="sell-item">
+        <span class="label">DEMO课助教：</span>
+        <span class="content">{{ta}}</span>
+        <select id="ta"></select>
+    </div>
+        <div class="sell-item">
+        <span class="label">DEMO课外教：</span>
+        <span class="content">{{ii}}</span>
+        <select id="ii"></select>
+    </div>
+        <div class="sell-item">
+        <span class="label">备注：</span>
+        <span class="content">{{remarks}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">暂缓日期：</span>
+        <span class="content">{{pauseDate}}</span>
+    </div>
+        <div class="sell-item">
+        <span class="label">毕业日期：</span>
+        <span class="content">{{graduateDate}}</span>
+    </div>    <div class="sell-item">
+        <span class="label">退费日期：</span>
+        <span class="content">{{refundDate}}</span>
+    </div>
+        <div class="update-detail"></div>
+        <span class="btn btn-submit">添加/修改</span>
+        <span class="btn btn-cancel">取消</span>
+    </div>
+
+
+    
+
+    <%= require('html-loader!./layout/footer.html')  %>
+</body>
+</html>
+
+

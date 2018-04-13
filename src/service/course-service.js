@@ -1,19 +1,19 @@
 /*
-* @Author: Rosen
+* @Author: Kelvin
 * @Date:   2017-05-27 18:26:52
 * @Last Modified by:   gongkelvin
-* @Last Modified time: 2018-04-03 15:09:24
+* @Last Modified time: 2018-04-09 17:39:50
 */
 
 'use strict';
 
 var _mm = require('util/mm.js');
 
-var _member = {
+var _course = {
     // 获取商品列表
-    getMemberList : function(listParam, resolve, reject){
+    getCourseList : function(listParam, resolve, reject){
         _mm.request({
-            url     : _mm.getServerUrl('/member/list_member.do'),
+            url     : _mm.getServerUrl('/course/list_course.do'),
             data    : listParam,
             method  : 'GET',
             success : resolve,
@@ -21,9 +21,10 @@ var _member = {
         });
     },
 
-    getMemberListByCtr : function(listParam, resolve, reject){
+
+    getActCourseList : function(listParam, resolve, reject){
         _mm.request({
-            url     : _mm.getServerUrl('/member/list_member_ByCtr.do'),
+            url     : _mm.getServerUrl('/course/list_active_course.do'),
             data    : listParam,
             method  : 'GET',
             success : resolve,
@@ -73,4 +74,4 @@ var _member = {
         });
     }*/
 }
-module.exports = _member;
+module.exports = _course;

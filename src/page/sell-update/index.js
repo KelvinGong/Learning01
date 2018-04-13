@@ -2,19 +2,24 @@
 * @Author: it.dept
 * @Date:   2018-03-23 14:15:17
 * @Last Modified by:   gongkelvin
-* @Last Modified time: 2018-04-02 15:28:07
+* @Last Modified time: 2018-04-09 23:09:39
 */
 'use strict'
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
 //require('util/wdatepicker/index.js');
-
+require('util/jquery.searchableSelect.js');
 var _mm             = require('util/mm.js');
 var _member         = require('service/member-service.js');
 var _marketing      = require('service/marketing-service.js');
+var _sell           = require('service/sell-service.js');
+var _user           = require('service/user-service.js');
+var _course         = require('service/course-service.js');
 var templateIndex   = require('./index.string');
-var templateMarket  = require('./marketing.string');
+var templateMember = require('./member.string');
+var templateUser    = require('./user.string');
+var templateCourse  = require('./course.string');
 
 
 var page = {
@@ -25,32 +30,68 @@ var page = {
     onLoad : function(){
         // 加载用户信息
         this.loadInfo();
+        var now = new Date(); 
+        payDate.value= now.getFullYear() + "-"+ this.pad((now.getMonth()+1),2)+"-"+this.pad(now.getDate(),2);
+    },
+    //截取字段函数
+    pad : function(num,n){
+        var len = num.toString().length;  
+        while(len < n) {  
+        num = "0" + num;  
+        len++;  
+        }  
+    return num;  
     },
     bindEvent : function(){
         var _this = this;
         // 点击提交按钮后的动作
         $(document).on('click', '.btn-submit', function(){
-
+/*
+sell相关字段
+private Integer ctrCode;
+private Date payDate;
+private Integer memberCode;
+private String contractCode;
+private String receptPosCode;
+private Integer courseCode;
+private Integer price;
+private Integer status;
+private String classCode;
+private Boolean isRenewal;
+private Boolean isShort;
+private Date firstclassTime;
+private Integer dayOfWeek;
+private Integer cc1;
+private Integer cc2;
+private Integer ei;
+private Integer ta;
+private Integer ii;
+private String remarks;
+private Date pauseDate;
+private Date graduateDate;
+private Date refundDate;
+private Date createTime;
+private Date updateTime;*/
             if(_this.getArgsFromHref(window.location.href,"id")==""){
-                var memberInfo = {
-                    memberCode      : $.trim($('#memberCode').val()),
-                    memName         : $.trim($('#memName').val()),
-                    nameEng         : $.trim($('#nameEng').val()),
-                    birthday        : $('#birthday').val().substring(5,7)+"/"+$('#birthday').val().substring(8,10)+"/"+$('#birthday').val().substring(0,4),
-                    gender          : $('#gender').find("option:selected").text(),
-                    nameParents     : $.trim($('#nameParents').val()),
-                    phone           : $.trim($('#question').val()),
-                    wechact         : $.trim($('#wechact').val()),
-                    address         : $.trim($('#address').val()),
-                    marketing       : $.trim($('#marketing').val().toString()),
-                    referFrom       : $.trim($('#referFrom').val()),
-                    remarks         : $.trim($('#remarks').val())
+                var sellInfo = {
+                    payDate         : $('#payDate').val().substring(5,7)+"/"+$('#payDate').val().substring(8,10)+"/"+$('#payDate').val().substring(0,4),
+                    memberCode      : $.trim($('#memberName').val().toString()),
+                    contractCode    : $.trim($('#contractCode').val()),
+                    receptPosCode   : $.trim($('#receptPosCode').val()),
+                    courseCode      : $.trim($('#course').val()),
+                    price           : $.trim($('#price').val()),
+                    status          : "3",
+                    isRenewal       : $('#isRenewal').is(":checked")? "1":"0",
+                    isShort         : $('#isShort').is(":checked")? "1":"0",
+                    cc1             : $.trim($('#cc1').val()),
+                    cc2             : $.trim($('#cc2').val()),
+                    //remarks         : $.trim($('#remarks').val())
                     
                 }
 
-                _member.addMember(memberInfo,function(res,msg){
+                _sell.addSell(sellInfo,function(res,msg){
                     _mm.successTips(msg);
-                    window.location.href = './memberlist.html';
+                    window.location.href = './sell-list.html';
                 },function(errmsg){
                     _mm.errorTips(errmsg);
                 });
@@ -122,15 +163,15 @@ var page = {
       }
       return retval;
     },
-    // 加载渠道信息
+    // 加载
     loadInfo : function(){
         var bannerHtml  = _mm.renderHtml(templateIndex);
 
         var _this       = this,
             listHtml    = '',
             //listParam   = this.data.listParam,
-            $pListCon   = $('.update-detail'),
-            $marketList = $('.marketingList');
+            $pListCon   = $('.sell-detail'),
+            $memberList = $('.memberList');
         //$pListCon.html('<div class="loading"></div>');
 
         if(this.getArgsFromHref(window.location.href,"id")!=""){
@@ -138,35 +179,13 @@ var page = {
                 id : this.getArgsFromHref(window.location.href,"id")
             };
             // 请求接口
-            _member.selectMember(listParam, function(res){
+            _member.getMemberListByCtr(listParam, function(res){
                 listHtml = _mm.renderHtml(templateIndex, {
-                    memberCode  : res.memberCode,
-                    memName     : res.memName,
-                    nameEng     : res.nameEng,
-                    birthday    : res.birthday,
-                    gender      : res.gender,
-                    nameParents : res.nameParents,
-                    phone       : res.phone,
-                    wechat      : res.wechat,
-                    address     : res.address,
-                    referFrom   : res.referFrom,
-                    marketing   : res.marketing,
-                    remarks     : res.remarks,
-                    marketingCode: res.marketingCode
-                    //age         : res.age 
+                    list    : res.list
+                      
                 });
                 $pListCon.html(listHtml);
-                $("#memberCode").val(res.memberCode);
-                $("#memName").val(res.memName);
-                $("#nameEng").val(res.nameEng);
-                $("#birthday").val(res.birthday);
-                $("#nameParents").val(res.nameParents);
-                $("#phone").val(res.phone);
-                $("#wechat").val(res.wechat);
-                $("#address").val(res.address);
-                $("#referFrom").val(res.referFrom);
-                $("#remarks").val(res.remarks);
-                $("#gender").val(res.gender);
+
                 // 请求marketing接口
                 _marketing.getActiveMarketingList( null ,function(res1){
                     listHtml = _mm.renderHtml(templateMarket, {
@@ -186,16 +205,45 @@ var page = {
 
 
         }else{
-            listHtml=_mm.renderHtml(templateIndex);
-            $pListCon.html(listHtml);
-            _marketing.getActiveMarketingList( null ,function(res1){
-                listHtml = _mm.renderHtml(templateMarket, {
-                    marketingList   : res1,
+            listHtml=_mm.renderHtml(templateMember);
+            //$pListCon.html(listHtml);
+            _member.getMemberListByCtr( null ,function(res){
+                listHtml = _mm.renderHtml(templateMember, {
+                    memberList   : res
                 });
 
-                $("#marketing").html(listHtml);
-                $("#marketing option[value='']").remove();
-                $("#marketing").val(1);
+                $("#memberName").html(listHtml);
+                $("#memberName").searchableSelect();
+                //$("#marketing option[value='']").remove();
+                //$("#marketing").val(1);
+            }, function(errMsg){
+                _mm.errorTips(errMsg);
+            });
+
+            _user.listUser( {role : 2},function(res){
+                listHtml = _mm.renderHtml(templateUser, {
+                    userList   : res
+                });
+
+                $("#cc1").html(listHtml);
+                $("#cc2").html(listHtml);
+                //$("#memberName").searchableSelect();
+                //$("#marketing option[value='']").remove();
+                //$("#marketing").val(1);
+            }, function(errMsg){
+                _mm.errorTips(errMsg);
+            });
+
+            _course.getActCourseList(null,function(res){
+                listHtml = _mm.renderHtml(templateCourse, {
+                    courseList   : res
+                });
+
+                $("#course").html(listHtml);
+                $("#course").searchableSelect();
+                //$("#memberName").searchableSelect();
+                //$("#marketing option[value='']").remove();
+                //$("#marketing").val(1);
             }, function(errMsg){
                 _mm.errorTips(errMsg);
             });

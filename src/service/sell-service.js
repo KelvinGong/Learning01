@@ -2,18 +2,18 @@
 * @Author: Rosen
 * @Date:   2017-05-27 18:26:52
 * @Last Modified by:   gongkelvin
-* @Last Modified time: 2018-04-03 15:09:24
+* @Last Modified time: 2018-04-03 10:48:04
 */
 
 'use strict';
 
 var _mm = require('util/mm.js');
 
-var _member = {
+var _sell = {
     // 获取商品列表
-    getMemberList : function(listParam, resolve, reject){
+    getSellList : function(listParam, resolve, reject){
         _mm.request({
-            url     : _mm.getServerUrl('/member/list_member.do'),
+            url     : _mm.getServerUrl('/sell/list_sell.do'),
             data    : listParam,
             method  : 'GET',
             success : resolve,
@@ -21,29 +21,19 @@ var _member = {
         });
     },
 
-    getMemberListByCtr : function(listParam, resolve, reject){
+    addSell : function(sellInfo, resolve, reject){
         _mm.request({
-            url     : _mm.getServerUrl('/member/list_member_ByCtr.do'),
-            data    : listParam,
+            url     : _mm.getServerUrl('/sell/add_sell.do'),
+            data    : sellInfo,
             method  : 'GET',
             success : resolve,
             error   : reject
         });
     },
 
-    addMember : function(memberInfo, resolve, reject){
+    selectSell: function(memberId, resolve,reject){
         _mm.request({
-            url     : _mm.getServerUrl('/member/add_member.do'),
-            data    : memberInfo,
-            method  : 'GET',
-            success : resolve,
-            error   : reject
-        });
-    },
-
-    selectMember: function(memberId, resolve,reject){
-        _mm.request({
-            url     : _mm.getServerUrl('/member/select_member.do'),
+            url     : _mm.getServerUrl('/sell/select_member.do'),
             data    : memberId,
             method  : 'GET',
             success : resolve,
@@ -51,10 +41,10 @@ var _member = {
         });
     },
 
-    updateMember : function(memberInfo, resolve, reject){
+    updateSell : function(sellInfo, resolve, reject){
         _mm.request({
-            url     : _mm.getServerUrl('/member/update_member.do'),
-            data    : memberInfo,
+            url     : _mm.getServerUrl('/sell/update_sell.do'),
+            data    : sellInfo,
             method  : 'GET',
             success : resolve,
             error   : reject
@@ -73,4 +63,4 @@ var _member = {
         });
     }*/
 }
-module.exports = _member;
+module.exports = _sell;

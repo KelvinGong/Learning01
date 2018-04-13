@@ -1,0 +1,3 @@
+            {{#memberList}}
+                <option value="{{id}}">{{memName}} {{memberCode}}</option>
+            {{/memberList}}

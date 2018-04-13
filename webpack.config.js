@@ -2,7 +2,7 @@
 * @Author: Rosen
 * @Date:   2017-05-08 15:28:19
 * @Last Modified by:   gongkelvin
-* @Last Modified time: 2018-04-02 00:26:10
+* @Last Modified time: 2018-04-02 15:33:30
 */
 var webpack             = require('webpack');
 var ExtractTextPlugin   = require('extract-text-webpack-plugin');
@@ -32,6 +32,9 @@ var config = {
         'memberlist'        : ['./src/page/memberlist/index.js'],
         'member-update'     : ['./src/page/member-update/index.js'],
         'member-detail'     : ['./src/page/member-detail/index.js'],
+        'sell-list'         : ['./src/page/sell-list/index.js'],
+        'sell-detail'       : ['./src/page/sell-detail/index.js'],
+        'sell-update'       : ['./src/page/sell-update/index.js'],
         'report-cc01'       : ['./src/page/report-cc01/index.js'],
         'detail'            : ['./src/page/detail/index.js'],
         'cart'              : ['./src/page/cart/index.js'],
@@ -92,7 +95,10 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('list', '商品列表')),
         new HtmlWebpackPlugin(getHtmlConfig('memberlist', '会员列表')),
         new HtmlWebpackPlugin(getHtmlConfig('member-update', '添加/修改会员信息')),
-        new HtmlWebpackPlugin(getHtmlConfig('member-detail', '会员详情')),        
+        new HtmlWebpackPlugin(getHtmlConfig('member-detail', '会员详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('sell-list', '销售单列表')),
+        new HtmlWebpackPlugin(getHtmlConfig('sell-update', '添加/修改销售单')),
+        new HtmlWebpackPlugin(getHtmlConfig('sell-detail', '销售单详情')),           
         new HtmlWebpackPlugin(getHtmlConfig('report-cc01', '中心CC业绩统计')),
         new HtmlWebpackPlugin(getHtmlConfig('detail', '商品详情')),
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
